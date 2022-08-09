@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Document</title>
+
+
+
+<style>
+    
+        table{
+    background-color: rgb(131, 205, 114);
+    border: 1px;
+    margin: 1px;
+    padding: 1px;
+    font-style: normal;
+    font-size: medium;
+    align-items: center;
+}   
+html{
+    background-color: rgb(43, 94, 132);
+    border: 5px;
+}     
+form{
+    background-color:rgb(227, 108, 175) ;
+}
+</style>
+
+</head>
+
+<body>
+
+     <div class="container">
+
+<h1><b>Data</b></h1>
+
+
+<form method="POST" name="sample">
+
+<br>
+
+    idno <input type="number" name="idno">
+
+    Name: <input type="text" name="name">
+    mbnumber:<input type="number" name="mbnumber">
+    emailid:<input type="emailid" name="emailid">
+
+    <br><br>
+
+    <input type="button" name="add" value="Add Data" onclick="addStudent();" class="btn btn-success"><hr>
+
+
+            <table id="tbl" class="table" border="1">
+
+                <thead>
+
+                <th><b>idno</b></th>
+
+                <th><b>Name</b></th>
+                <th><b> mbnumber</b></th>
+                <th><b>emailid</b></th>
+
+                <th> <b>Delete</b></th>
+
+                <th><b>Update</b></th>
+
+
+                <tr>
+                    <td> 1</td>
+                    <td>xyz</td>
+                    <td>9999999999</td>
+                    <td>abc#64;gmail.com</td>
+                    </tr>                
+
+
+<tr>
+    <td> 2</td>
+    <td>abc</td>
+    <td>9555999999</td>
+    <td>xyz#64;gmail.com</td>
+    </tr>
+
+     </thead>
+     <tbody>
+
+                     
+
+  </tbody>
+ </table>
+
+
+</form>
+
+
+ <script type="text/javascript">
+
+       
+
+    function addStudent()
+
+    {
+
+        var idno=document.sample.idno.value;
+
+        var name=document.sample.name.value;
+
+        var mbnumber=document.sample.mbnumber.value;
+
+        var emailid=document.sample.emailid.value;
+
+
+       
+
+        var tr = document.createElement('tr');
+
+       
+
+        var td1 = tr.appendChild(document.createElement('td'));
+
+        var td2 = tr.appendChild(document.createElement('td'));
+
+        var td3 = tr.appendChild(document.createElement('td'));
+
+        var td4 = tr.appendChild(document.createElement('td'));
+
+       var td5 = tr.appendChild(document.createElement('td'));
+
+       var td6 = tr.appendChild(document.createElement('td'));
+
+       
+
+        td1.innerHTML=idno;
+         td2.innerHTML=name;
+        td3.innerHTML=mbnumber;
+        td4.innerHTML=emailid;
+
+        td5.innerHTML='<input type="button" name="del" value="Delete" onclick="delStudent(this);" class="btn btn-danger">'
+
+        td6.innerHTML='<input type="button" name="up" value="Update" onclick="UpStud(this);" class="btn btn-primary">'
+
+
+        document.getElementById("tbl").appendChild(tr);
+
+    }
+
+
+    function UpStud(stud){
+
+         var idno=document.sample.idno.value;
+
+        var name=document.sample.name.value;
+        var mbnumber=document.sample.mbnumber.value;
+        var emailid=document.sample.emailid.value;
+
+        var s = stud.parentNode.parentNode;
+
+        var tr = document.createElement('tr');
+
+       
+
+        var td1 = tr.appendChild(document.createElement('td'));
+
+        var td2 = tr.appendChild(document.createElement('td'));
+
+        var td3 = tr.appendChild(document.createElement('td'));
+
+        var td4 = tr.appendChild(document.createElement('td'));
+
+       var td5 = tr.appendChild(document.createElement('td'));
+
+       var td6 = tr.appendChild(document.createElement('td'));
+
+       
+
+        td1.innerHTML='<input type="number" name="idno1">';
+        td2.innerHTML='<input type="text" name="name1">';
+        td3.innerHTML='<input type="number" name="mbnumber1">';
+        td4.innerHTML='<input type="email" name="emailid1">';
+
+        td5.innerHTML='<input type="button" name="del" value="Delete" onclick="delStudent(this);" class="btn btn-danger">'
+
+        td6.innerHTML='<input type="button" name="up" value="Update" onclick="addUpStud(this);" class="btn btn-primary">'
+
+
+        document.getElementById("tbl").replaceChild(tr, s);
+
+    }
+
+
+    function addUpStud(stud){
+
+        var idno=document.sample.idno1.value;
+
+        var name=document.sample.name1.value;
+
+        var mbnumber=document.sample.mbnumber1.value;
+
+        var emailid=document.sample.emailid1.value;
+
+        var s = stud.parentNode.parentNode;
+
+        var tr = document.createElement('tr');
+
+       
+
+        var td1 = tr.appendChild(document.createElement('td'));
+
+        var td2 = tr.appendChild(document.createElement('td'));
+
+        var td3 = tr.appendChild(document.createElement('td'));
+
+        var td4 = tr.appendChild(document.createElement('td'));
+
+       var td5 = tr.appendChild(document.createElement('td'));
+
+       var td6=tr.appendChild(document.createElement('td'));
+
+       
+
+        td1.innerHTML=idno;
+
+        td2.innerHTML=name;
+
+        td3.innerHTML=mbnumber;
+        td4.innerHTML=emailid;
+
+        td5.innerHTML='<input type="button" name="del" value="Delete" onclick="delStudent(this);" class="btn btn-danger">'
+
+        td6.innerHTML='<input type="button" name="up" value="Update" onclick="UpStud(this);" class="btn btn-primary">'
+
+
+        document.getElementById("tbl").replaceChild(tr, s);
+
+    }
+
+
+    function delStudent(Stud){
+
+        var s=Stud.parentNode.parentNode;
+
+        s.parentNode.removeChild(s);
+
+    }
+
+   
+
+   
+
+    </script>
+
+</div>
+
+    </body>
+
+</html>
+
+
